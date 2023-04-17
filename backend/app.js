@@ -1,6 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const router = require('./routes/index');
@@ -17,6 +19,21 @@ mongoose.connect(BASE_PATH, {})
     console.log(`Error during connection ${err}`);
   });
 
+const corsOptions = {
+  origin: [
+    'http://localhost:3001',
+    'https://localhost:3001',
+    'https://localhost:3000',
+    'http://localhost:3000',
+    'http://mesto-travel.nomoredomains.monster',
+    'https://mesto-travel.nomoredomains.monster',
+    'http://api.mesto-travel.nomoredomains.monster',
+    'https://api.mesto-travel.nomoredomains.monster',
+  ],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json()); // для работы с телом запроса
 app.use(cookieParser());
 

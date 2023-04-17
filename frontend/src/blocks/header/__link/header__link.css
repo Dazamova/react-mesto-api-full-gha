@@ -1,0 +1,12 @@
+.header__link {
+  height: max-content;
+  width: max-content;
+  font-weight: 400;
+  text-decoration: none;
+  color: white;
+}
+
+.header__link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

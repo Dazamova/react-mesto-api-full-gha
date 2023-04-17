@@ -1,0 +1,20 @@
+.authorisation__input {
+  padding: 0 0 13px 0;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: black;
+  color: #CCCCCC;
+  border-width: 0 0 2px 0;
+  border-bottom-style: solid;
+  border-color: #CCCCCC;
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.authorisation__input:focus {
+  border-color: #FFFFFF;
+  font-weight: 500;
+  color: #FFFFFF;
+}

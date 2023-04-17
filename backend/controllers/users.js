@@ -52,7 +52,7 @@ module.exports.login = (req, res, next) => {
     .then((user) => {
       const token = jwt.sign({ _id: user._id }, 'ya-practicum', { expiresIn: '7d' }); // Пейлоуд токена — зашифрованный в строку объект пользователя и секретный ключ
 
-      res.cookie('jwt', token, { maxAge: 6048e5, httpOnly: true }).send(user.toJSON());
+      res.cookie('jwt', token, { maxAge: 6048e5, httpOnly: true, sameSite: true }).send(user.toJSON());
     })
     .catch((err) => {
       next(err);

@@ -1,0 +1,28 @@
+.main-page {
+  max-width: 1280px;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 45px 200px 60px 200px;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Arial', sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+@media screen and (max-width: 1279px) {
+  .main-page {
+    padding: 45px 60px 60px 60px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .main-page {
+    padding: 45px 80px 60px 80px;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .main-page {
+    padding: 0;
+  }
+}

@@ -1,0 +1,10 @@
+.popup__heading_confirm {
+  padding-bottom: 38px;
+}
+
+@media screen and (max-width: 568px) {
+  .popup__heading_confirm {
+    font-size: 20px;
+    padding-bottom: 30px;
+  }
+}

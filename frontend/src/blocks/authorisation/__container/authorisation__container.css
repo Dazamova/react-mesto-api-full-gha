@@ -1,0 +1,8 @@
+.authorisation__container {
+  width: 358px;
+  background-color: black;
+  padding-top: 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}

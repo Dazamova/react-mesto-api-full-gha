@@ -1,0 +1,13 @@
+.profile__headline {
+  margin: 0;
+  max-width: 100%;
+  display: flex;
+  gap: 18px;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__headline {
+    gap: 10px;
+    justify-content: center;
+  }
+}

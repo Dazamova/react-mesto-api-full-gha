@@ -1,0 +1,29 @@
+.profile__avatar-container {
+    position: relative;
+    overflow: hidden;
+    min-width: 120px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile__avatar-container:hover {
+    cursor: pointer;
+  }
+
+  .profile__avatar-container:hover::after{
+    background-image: url(../../../images/update-avatar.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    margin: auto;
+    content: '';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 26px;
+    height: 26px;
+  }

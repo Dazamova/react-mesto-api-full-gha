@@ -10,6 +10,6 @@
 
 IP-адрес x.x.x.x
 
-Frontend https://...
+Frontend https://mesto-travel.nomoredomains.monster
 
-Backend https://...
+Backend https://api.mesto-travel.nomoredomains.monster
