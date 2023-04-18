@@ -24,7 +24,7 @@ export const validationConfig = {
 };
 
 export const apiConfig = {
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://mesto-travel.nomoredomains.monster',
   headers: {
     // 'Authorization': '08ca9b9b-5109-4975-909a-0b8f1b0ed24a',
     'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ export const apiConfig = {
 };
 
 export const authConfig = {
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://mesto-travel.nomoredomains.monster',
   headers:{
     'Content-Type': 'application/json'
   }
