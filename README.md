@@ -7,7 +7,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.39.190
+IP-адрес 158.160.42.149
 
 Frontend https://mesto-travel.nomoredomains.monster
 

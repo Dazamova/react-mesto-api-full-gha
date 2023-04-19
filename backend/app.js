@@ -21,8 +21,6 @@ mongoose.connect(BASE_PATH, {})
 
 const corsOptions = {
   origin: [
-    'http://localhost:3001',
-    'https://localhost:3001',
     'https://localhost:3000',
     'http://localhost:3000',
     'http://mesto-travel.nomoredomains.monster',
@@ -39,12 +37,16 @@ app.use(cookieParser());
 
 app.use(requestLogger); // логгер запросов
 
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 app.use('/', router); // обработчик роутов
 
 app.use(errorLogger); // логгер ошибок
-
 app.use(errors()); // обработчик ошибок celebrate
-
 app.use((err, req, res, next) => { // централизованный обработчик ошибок
   const { statusCode = 500, message } = err; // если у ошибки нет статуса, выставляем 500
 
