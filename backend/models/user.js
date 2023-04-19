@@ -21,7 +21,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     select: false,
-    minlength: 8,
   },
   name: {
     type: String,
@@ -50,14 +49,14 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-userSchema.methods.toJSON = function () {
+userSchema.methods.toJSON = function toJSON() {
   const data = this.toObject();
   delete data.password;
   delete data.__v;
   return data;
 };
 
-userSchema.statics.findUser = function (email, password) {
+userSchema.statics.findUser = function findUser(email, password) {
   return this.findOne({ email }).select('+password')
     .orFail()
     .then((user) => bcrypt.compare(password, user.password)
