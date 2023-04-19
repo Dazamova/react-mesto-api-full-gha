@@ -124,8 +124,8 @@ function App() {
   // авторизация пользователя - signIn
   function handleSignIn(formData) {
     authApi.signIn(formData).then((data) => {
-      const token = data.token;
-      localStorage.setItem("jwt", token);
+      // const token = data.token;
+      // localStorage.setItem("jwt", token);
       // authApi.checkAuth(token).then((user) => {
       //   setCurrentUser((prevState) => ({ ...prevState, email: user.data.email }))
       // }).catch(rej => {
@@ -142,21 +142,26 @@ function App() {
 
   //проверка наличия токена
   React.useEffect(() => {
-    const jwt = localStorage.getItem('jwt');
-    if (jwt) {
-      authApi.checkAuth(jwt).then((user) => {
-        setCurrentUser((prevState) => ({ ...prevState, email: user.email }));
-        setIsLoggedIn(true);
-        navigate("/");
-      }).catch(rej => {
-        console.log(rej)
-      })
-    }
+    // const jwt = localStorage.getItem('jwt');
+    // if (jwt) {
+    authApi.checkAuth().then((user) => {
+      setCurrentUser((prevState) => ({ ...prevState, email: user.email }));
+      setIsLoggedIn(true);
+      navigate("/");
+    }).catch(rej => {
+      console.log(rej)
+    })
+    // }
   }, [])
 
   function handleSignOut() {
-    localStorage.removeItem('jwt');
-    navigate("/sign-in")
+    authApi.signOut().then(() => {
+      setCurrentUser((prevState) => ({ ...prevState, email: '' }));
+      setIsLoggedIn(false);
+      navigate("/sign-in")
+    }).catch(rej => {
+      console.log(rej)
+    })
   }
 
   React.useEffect(() => {

@@ -54,11 +54,21 @@ module.exports.login = (req, res, next) => {
     .then((user) => {
       const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'ya-practicum', { expiresIn: '7d' }); // Пейлоуд токена — зашифрованный в строку объект пользователя и секретный ключ
 
-      res.cookie('jwt', token, { maxAge: 6048e5 }).send(user.toJSON());
+      res.cookie('jwt', token, { maxAge: 6048e5, httpOnly: true, sameSite: true }).send(user.toJSON());
     })
     .catch((err) => {
       next(err);
     });
+};
+
+module.exports.logout = (req, res, next) => {
+  try {
+    res.clearCookie('jwt', { httpOnly: true, sameSite: true })
+      .send({ message: 'logout success' })
+      .end();
+  } catch (err) {
+    next(err);
+  }
 };
 
 module.exports.getUser = (req, res, next) => { // GET /users/:userId - найдет пользователя по _id

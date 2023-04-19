@@ -37,6 +37,17 @@ function ApiConstructor(config) {
       credentials: 'include'
     }).then((res) => { return this.checkResponse(res) });
   }
+
+  ApiConstructor.prototype.signOut = (token) => {
+    return fetch(`${config.baseUrl}/signout`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // 'Authorization': `Bearer ${token}`,
+      },
+      credentials: 'include'
+    }).then((res) => { return this.checkResponse(res) });
+  }
 }
 
 export const authApi = new ApiConstructor(authConfig);

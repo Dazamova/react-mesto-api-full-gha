@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Joi, celebrate } = require('celebrate');
 
 const {
-  createUser, login,
+  createUser, login, logout,
 } = require('../controllers/users');
 
 const urlRegExp = /https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}/;
@@ -23,5 +23,7 @@ router.post('/signin', celebrate({
     password: Joi.string().required().min(8),
   }).unknown(true),
 }), login);
+
+router.post('/signout', logout);
 
 module.exports = router;
